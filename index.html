@@ -90,7 +90,7 @@
     .photo-frame img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Foto inteira sem cortar */
+      object-fit: contain;
       border-radius: 16px;
     }
 
@@ -171,16 +171,18 @@
 <body>
 
   <div class="container">
+    <!-- Tela de Bloqueio -->
     <div id="lockScreen" class="lock-screen">
-      <h1>Uma surpresa mirabolante para você<3</h1>
-      <p>Digite a senha para entrar:</p>
+      <h1>Eu te amo!🤍</h1>
+      <p>digite a senha para entrar:</p>
       <input type="password" id="passwordInput" placeholder="Digite a senha...">
       <button class="btn" onclick="verificarSenha()">Entrar ❤️</button>
       <p id="errorMessage" style="color: #ff4d4d; font-size: 0.85rem; display: none; margin-top: 10px;">Senha incorreta! Tente novamente.</p>
     </div>
 
+    <!-- Conteúdo Principal -->
     <div id="mainContent" class="hidden">
-      <h1 style="font-family: 'Fredoka', sans-serif; color: var(--accent-color);">Juntos para sempre... ✨</h1>
+      <h1 style="font-family: 'Fredoka', sans-serif; color: var(--accent-color);">Obrigada por ser você🤍</h1>
       
       <div class="photo-frame">
         <img src="us.jpeg" alt="Nossa Foto">
@@ -194,22 +196,15 @@
       </div>
 
       <div class="spotify-player">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4juuHs3mbaZKuiBUEDgLzF?utm_source=generator&si=dc33283b0332410f" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/25S6S3A3C8M3C4bA4bB3k8?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
 
+      <!-- Seção da Linha do Tempo -->
       <h2 class="timeline-title">Nossa Linha do Tempo 📖</h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-date">31 de Maio de 2026</div>
-          <div class="timeline-desc"> Definitivamente pelo destino. 🥰</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Eu te amo, Luis Felipe</div>
-          <div class="timeline-desc">Todos os momentos com você são inesquecíveis!! ✨</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Hoje</div>
-          <div class="timeline-desc">Te amando cada vez mais ❤️</div>
+          <div class="timeline-desc">Eu te vivo, meu amor</div>
         </div>
       </div>
 
