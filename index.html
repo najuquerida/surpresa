@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nós 💖</title>
-  
+  <title>Nós ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg-color: #ffeef2;
@@ -31,131 +29,161 @@
 
     .container {
       background: var(--card-bg);
-      padding: 30px 25px;
       border-radius: 24px;
-      box-shadow: 0 10px 25px rgba(255, 133, 162, 0.2);
-      max-width: 420px;
+      padding: 25px;
+      max-width: 450px;
       width: 100%;
+      box-shadow: 0 10px 30px rgba(255, 133, 162, 0.2);
       text-align: center;
-      border: 3px solid #ffccd5;
     }
 
-    h1 {
+    /* Tela de Login */
+    .lock-screen h1 {
       font-family: 'Fredoka', sans-serif;
-      font-size: 1.8rem;
       color: var(--accent-color);
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
-    /* Tela de Senha */
-    #lock-screen {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .pass-input {
+    .lock-screen input {
+      width: 100%;
       padding: 12px;
-      border: 2px solid #ffccd5;
+      border: 2px solid #ffd1dc;
       border-radius: 12px;
+      margin: 15px 0;
       text-align: center;
-      font-size: 1.1rem;
+      font-size: 1rem;
       outline: none;
-      width: 80%;
     }
 
-    .pass-btn, .share-btn {
-      background-color: var(--accent-color);
+    .btn {
+      background: var(--accent-color);
       color: white;
       border: none;
       padding: 12px 24px;
       border-radius: 50px;
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1rem;
+      font-weight: bold;
       cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
       transition: transform 0.2s;
     }
 
-    .pass-btn:hover, .share-btn:hover {
-      transform: scale(1.05);
+    .btn:hover {
+      transform: scale(1.02);
     }
 
-    /* Conteúdo Principal (Escondido no início) */
-    #main-content {
-      display: none;
-    }
+    /* Conteúdo Principal */
+    .hidden { display: none; }
 
     .photo-frame {
       width: 100%;
-      max-height: 280px;
+      height: 320px;
       border-radius: 16px;
       overflow: hidden;
-      margin-bottom: 20px;
-      border: 4px solid var(--bg-color);
+      margin: 15px 0;
+      background: #fff0f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .photo-frame img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
+      object-fit: contain; /* Foto inteira sem cortar */
+      border-radius: 16px;
     }
 
     .timer {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
     }
 
     .time-box {
-      background-color: var(--bg-color);
-      padding: 10px 5px;
+      background: #fff0f3;
+      padding: 10px;
       border-radius: 12px;
+      flex: 1;
+      margin: 0 4px;
     }
 
     .time-box span {
       display: block;
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
+      font-size: 1.2rem;
+      font-weight: bold;
       color: var(--accent-color);
     }
 
     .time-box label {
       font-size: 0.75rem;
       color: var(--subtext-color);
-      text-transform: uppercase;
-      font-weight: 700;
     }
 
     .spotify-player {
-      margin-bottom: 20px;
+      margin-top: 15px;
       border-radius: 12px;
       overflow: hidden;
+    }
+
+    /* Linha do Tempo */
+    .timeline-title {
+      font-family: 'Fredoka', sans-serif;
+      color: var(--accent-color);
+      margin: 25px 0 15px 0;
+    }
+
+    .timeline {
+      position: relative;
+      border-left: 3px solid #ffd1dc;
+      padding-left: 20px;
+      margin-left: 10px;
+      text-align: left;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .timeline-item::before {
+      content: '💖';
+      position: absolute;
+      left: -31px;
+      top: 0;
+      background: white;
+      border-radius: 50%;
+      font-size: 0.9rem;
+    }
+
+    .timeline-date {
+      font-weight: bold;
+      font-size: 0.85rem;
+      color: var(--accent-color);
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-color);
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    
-    <!-- TELA DE SENHA -->
-    <div id="lock-screen">
-      <h1>🔒 Espaço Privado</h1>
-      <p style="color: var(--subtext-color);">Digite nossa senha secreta para entrar:</p>
-      <input type="password" id="passwordInput" class="pass-input" placeholder="Digite a senha...">
-      <button class="pass-btn" onclick="checkPassword()">Entrar 💖</button>
-      <p id="error-msg" style="color: #ff4d4d; font-size: 0.85rem; display: none;">Senha incorreta! Tente de novo 💕</p>
+    <div id="lockScreen" class="lock-screen">
+      <h1>Nosso Cantinho 🔒</h1>
+      <p>Digite nossa senha secreta para entrar:</p>
+      <input type="password" id="passwordInput" placeholder="Digite a senha...">
+      <button class="btn" onclick="verificarSenha()">Entrar ❤️</button>
+      <p id="errorMessage" style="color: #ff4d4d; font-size: 0.85rem; display: none; margin-top: 10px;">Senha incorreta! Tente novamente.</p>
     </div>
 
-    <!-- CONTEÚDO SECRETO -->
-    <div id="main-content">
-      <h1>Desde aquele momento... ✨</h1>
-
+    <div id="mainContent" class="hidden">
+      <h1 style="font-family: 'Fredoka', sans-serif; color: var(--accent-color);">Juntos a cada momento... ✨</h1>
+      
       <div class="photo-frame">
-        <img src="us.jpeg" alt="Foto especial">
+        <img src="us.jpeg" alt="Nossa Foto">
       </div>
 
       <div class="timer">
@@ -166,55 +194,62 @@
       </div>
 
       <div class="spotify-player">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed?track/4juuHs3mbaZKuiBUEDgLzF?utm_source=generator&si=dc33283b0332410f" width-"100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4juuHs3mbaZKuiBUEDgLzF?utm_source=generator&si=dc33283b0332410f" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
 
+      <h2 class="timeline-title">Nossa Linha do Tempo 📖</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">31 de Maio de 2026</div>
+          <div class="timeline-desc">O dia em que começamos a nossa história juntos! 🥰</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Nosso Primeiro Encontro</div>
+          <div class="timeline-desc">Aquele momento especial inesquecível. ✨</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Hoje</div>
+          <div class="timeline-desc">Construindo mais um capítulo lindo ao seu lado! ❤️</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <script>
-    // 1. ALTERE SUA SENHA AQUI:
-    const SENHA_CORRETA = "31052026"; // Escolha a senha que quiser!
-
-    function checkPassword() {
-      const input = document.getElementById('passwordInput').value;
-      if (input === SENHA_CORRETA) {
-        document.getElementById('lock-screen').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-        startTimer();
+    function verificarSenha() {
+      const senha = document.getElementById('passwordInput').value;
+      if (senha === '31052026') {
+        document.getElementById('lockScreen').classList.add('hidden');
+        document.getElementById('mainContent').classList.remove('hidden');
+        iniciarContador();
       } else {
-        document.getElementById('error-msg').style.display = 'block';
+        document.getElementById('errorMessage').style.display = 'block';
       }
     }
 
-    const startDate = new Date('2026-05-31T17:25:00');
+    function iniciarContador() {
+      const dataInicio = new Date('2026-05-31T00:00:00');
 
-    function startTimer() {
-      function updateTimer() {
-        const now = new Date();
-        const diff = now - startDate;
+      function atualizar() {
+        const agora = new Date();
+        const diferenca = agora - dataInicio;
 
-        if (diff < 0) {
-          document.getElementById('days').innerText = "0";
-          document.getElementById('hours').innerText = "0";
-          document.getElementById('minutes').innerText = "0";
-          document.getElementById('seconds').innerText = "0";
-          return;
+        if (diferenca > 0) {
+          const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+          const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+          const minutos = Math.floor((diferenca / 1000 / 60) % 60);
+          const segundos = Math.floor((diferenca / 1000) % 60);
+
+          document.getElementById('days').innerText = dias;
+          document.getElementById('hours').innerText = horas;
+          document.getElementById('minutes').innerText = minutos;
+          document.getElementById('seconds').innerText = segundos;
         }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / 1000 / 60) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        document.getElementById('days').innerText = days;
-        document.getElementById('hours').innerText = hours;
-        document.getElementById('minutes').innerText = minutes;
-        document.getElementById('seconds').innerText = seconds;
       }
 
-      setInterval(updateTimer, 1000);
-      updateTimer();
+      atualizar();
+      setInterval(atualizar, 1000);
     }
   </script>
 </body>
